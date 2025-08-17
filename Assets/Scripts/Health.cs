@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,8 +24,13 @@ public class Health: MonoBehaviour
         if (IsDead)
         {
             Die();
+            StartCoroutine(Destroy()); // Optional: Destroy the game object after a delay
         }
     }
-
+    private IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+    }
     private void Die() => OnDead.Invoke();
 }

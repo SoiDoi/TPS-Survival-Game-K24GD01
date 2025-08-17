@@ -28,6 +28,11 @@ public class Grenade : MonoBehaviour
             {
                 cube.Explode(_explosionForce, transform.position, _explosionRadius);
             }
+
+            if (victim.TryGetComponent<Health>(out var health))
+            {
+                health.TakeDamage(50); // Assuming a fixed damage value for simplicity
+            }
         }
     }
 }
