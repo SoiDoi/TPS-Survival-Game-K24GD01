@@ -2,28 +2,6 @@
 
 public class CursorController : MonoBehaviour
 {
-    //void Start()
-    //{
-    //    // Ẩn chuột
-    //    Cursor.visible = false;
-
-    //    // Khóa chuột ở giữa màn hình
-    //    Cursor.lockState = CursorLockMode.Locked;
-
-    //    // Nếu chỉ muốn ẩn nhưng vẫn cho di chuyển tự do:
-    //    // Cursor.lockState = CursorLockMode.None;
-    //}
-
-    //void Update()
-    //{
-    //    // Nhấn ESC để hiện lại chuột (debug tiện lợi)
-    //    if (Input.GetKeyDown(KeyCode.Escape))
-    //    {
-    //        Cursor.visible = true;
-    //        Cursor.lockState = CursorLockMode.None;
-    //    }
-    //}
-
     private void Start()
     {
         HideCursor();
@@ -43,13 +21,13 @@ public class CursorController : MonoBehaviour
         }
     }
 
-    private void HideCursor()
+    public void HideCursor()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void ShowCursor()
+    public void ShowCursor()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

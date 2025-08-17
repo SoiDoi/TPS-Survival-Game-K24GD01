@@ -6,7 +6,7 @@ public class Health: MonoBehaviour
 {
     [SerializeField] private int _maxHealthPoint;
 
-    public UnityEvent OnDead;
+    public UnityEvent OnDead,OnGetDamage;
     public int MaxHealthPoint => _maxHealthPoint;
     public int HealthPoint => _healthPoint;
     
@@ -21,6 +21,7 @@ public class Health: MonoBehaviour
         if (IsDead) { return; }
 
         _healthPoint -= damage;
+        GetDamage();
         if (IsDead)
         {
             Die();
@@ -33,4 +34,8 @@ public class Health: MonoBehaviour
         Destroy(gameObject);
     }
     private void Die() => OnDead.Invoke();
+    private void GetDamage()
+    {
+        OnGetDamage.Invoke();
+    }
 }

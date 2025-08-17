@@ -9,7 +9,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Tìm player trong scene / Find the player in the scene
+        try
+        {
+            _playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Tìm player trong scene / Find the player in the scene
+        }
+        catch { Debug.Log("Player not found! Make sure the player has the 'Player' tag assigned."); return; }
     }
     private void Update()
     {

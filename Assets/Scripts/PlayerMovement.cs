@@ -11,7 +11,11 @@ public class PlayerMovement : MonoBehaviour
 
 	private float _velocityY;
 
-	private void Update()
+    private void Start()
+    {
+        GameManager.Instance.NewGame();
+    }
+    private void Update()
     {
         var input = _moveAction.action.ReadValue<Vector2>();
         var direction = transform.forward * input.y + transform.right * input.x;
